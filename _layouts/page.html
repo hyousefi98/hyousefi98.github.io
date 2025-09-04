@@ -4,8 +4,14 @@
 <body>
   {% include nav.html %}
 
-  <!-- Slim header just for internal pages -->
-  <header class="header-slim">
+  <!-- Slim hero for internal pages (keeps theme background image) -->
+  <!-- Control height per page with front-matter:
+       hero_height: 200px
+       desktop_hero_height: 260px
+  -->
+  <header class="header-slim"
+          style="--hero-h: {{ page.hero_height | default: '220px' }};
+                 --hero-h-desktop: {{ page.desktop_hero_height | default: '280px' }};">
     <div class="header-content">
       <div class="header-content-inner">
         <h1>{{ page.title }}</h1>
@@ -15,8 +21,8 @@
     </div>
   </header>
 
-  <!-- Content section on white background for better readability -->
-  <section id="page" class="page-section" style="padding:40px 0; background:#ffffff; color:#222;">
+  <!-- Main content on white for strong contrast -->
+  <section id="page" class="page-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 col-md-12">
@@ -27,26 +33,58 @@
   </section>
 
   <style>
-    /* Make the internal-page hero smaller than the homepage */
-    header.header-slim .header-content { padding: 70px 15px; }
-    @media (min-width: 768px) {
-      header.header-slim .header-content { padding: 110px 0; }
+    /* Header sizing & layout */
+    header.header-slim {
+      position: relative;
+      width: 100%;
+      height: var(--hero-h, 240px);   /* mobile/tablet height */
+      text-align: center;
+      color: #fff;                    /* keep theme’s white heading on hero */
     }
-
-    /* Slightly smaller title on internal pages */
+    @media (min-width: 768px) {
+      header.header-slim { height: var(--hero-h-desktop, 300px); } /* desktop height */
+    }
+    header.header-slim .header-content {
+      height: 100%;
+      padding: 0;                     /* remove big vertical padding */
+      display: flex;
+      align-items: center;            /* vertical center */
+      justify-content: center;        /* horizontal center */
+    }
     header.header-slim .header-content .header-content-inner h1 {
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: 700;
       font-size: 40px;
     }
     @media (min-width: 768px) {
-      header.header-slim .header-content .header-content-inner h1 {
-        font-size: 64px;
-      }
+      header.header-slim .header-content .header-content-inner h1 { font-size: 56px; }
+    }
+    header.header-slim .header-content .header-content-inner p {
+      margin-bottom: 0;
+      font-size: 16px;
+      color: rgba(255,255,255,.8);
+    }
+    @media (min-width: 768px) {
+      header.header-slim .header-content .header-content-inner p { font-size: 18px; }
     }
 
-    /* Improve contrast for links inside the white section */
-    .page-section a { color: #1b6ec2; text-decoration: none; }
-    .page-section a:hover, .page-section a:focus { color: #0f4e91; text-decoration: underline; }
-    .page-section .pub-meta { color: rgba(0,0,0,.7); }
+    /* Page section (readable on white) */
+    section.page-section {
+      padding: 40px 0;
+      background: #ffffff;
+      color: #222;
+    }
+    section.page-section a {
+      color: #1b6ec2;                 /* accessible link color */
+      text-decoration: none;
+    }
+    section.page-section a:hover,
+    section.page-section a:focus {
+      color: #0f4e91;
+      text-decoration: underline;
+    }
+    section.page-section .pub-meta { color: rgba(0,0,0,.7); }
   </style>
 
   {% include scripts.html %}
