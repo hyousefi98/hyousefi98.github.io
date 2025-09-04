@@ -4,19 +4,18 @@
 <body>
   {% include nav.html %}
 
-  <!-- Slim hero for internal pages.
-       Set per-page hero with: hero_image: /img/some-image.jpg
-       Control height with:    hero_height: 4cm  (fallback also set below)
+  <!-- Slim hero for internal pages
+       - Set a custom image per page:  hero_image: /img/publications-hero.jpg
+       - Override height per page:     hero_height: 8cm  (px fallback below)
   -->
   <header class="header-slim"
           style="
-            height: {{ page.hero_height | default: '4cm' }};       /* exact target height */
-            height: {{ page.hero_height | default: '152px' }};     /* px fallback for some browsers */
+            height: {{ page.hero_height | default: '8cm' }};    /* exact cm */
+            height: {{ page.hero_height | default: '304px' }};  /* px fallback (~8cm) */
             background-image: url('{{ page.hero_image | default: '/img/header.jpg' }}');
             background-size: cover;
             background-position: center;
-            overflow: hidden;
-          ">
+            overflow: hidden;">
     <div class="header-content">
       <div class="header-content-inner">
         <h1>{{ page.title }}</h1>
@@ -38,45 +37,30 @@
   </section>
 
   <style>
-    /* Keep the header actually slim */
-    header.header-slim {
-      width: 100%;
-      text-align: center;
-      color: #fff;
-    }
+    /* Keep the header slim and centered */
+    header.header-slim { width: 100%; text-align: center; color: #fff; }
     header.header-slim .header-content {
-      height: 100%;
-      padding: 0;
-      display: flex;
-      align-items: center;      /* vertical center */
-      justify-content: center;  /* horizontal center */
+      height: 100%; padding: 0;
+      display: flex; align-items: center; justify-content: center;
     }
     header.header-slim .header-content .header-content-inner h1 {
-      margin: 0;
-      text-transform: uppercase;
-      font-weight: 700;
-      font-size: 36px;
-      line-height: 1.1;
+      margin: 0; text-transform: uppercase; font-weight: 700;
+      font-size: 42px; line-height: 1.1;
     }
-    header.header-slim .header-content .header-content-inner hr {
-      margin: 12px auto;
+    @media (min-width: 768px) {
+      header.header-slim .header-content .header-content-inner h1 { font-size: 64px; }
     }
     header.header-slim .header-content .header-content-inner p {
-      margin: 6px 0 0;
-      font-size: 16px;
-      color: rgba(255,255,255,.85);
+      margin: 6px 0 0; font-size: 16px; color: rgba(255,255,255,.85);
+    }
+    @media (min-width: 768px) {
+      header.header-slim .header-content .header-content-inner p { font-size: 18px; }
     }
 
-    /* Readable page content */
-    section.page-section {
-      padding: 40px 0;
-      background: #ffffff;
-      color: #222;
-    }
+    /* Readable page body */
+    section.page-section { padding: 40px 0; background: #fff; color: #222; }
     section.page-section a { color: #1b6ec2; text-decoration: none; }
-    section.page-section a:hover, section.page-section a:focus {
-      color: #0f4e91; text-decoration: underline;
-    }
+    section.page-section a:hover, section.page-section a:focus { color: #0f4e91; text-decoration: underline; }
   </style>
 
   {% include scripts.html %}
