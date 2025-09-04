@@ -4,16 +4,18 @@
 <body>
   {% include nav.html %}
 
-  <!-- Slim hero for internal pages -->
-  <!-- You can override height per page with:
-       hero_height: 8cm   (or "304px")
-       desktop_hero_height: 8cm
+  <!-- Slim hero for internal pages.
+       Set per-page hero with: hero_image: /img/some-image.jpg
+       Control height with:    hero_height: 4cm  (fallback also set below)
   -->
   <header class="header-slim"
           style="
-            /* Prefer exact cm, but provide px fallback for consistency */
-            height: {{ page.hero_height | default: '8cm' }};
-            height:  {{ page.hero_height | default: '304px' }};
+            height: {{ page.hero_height | default: '4cm' }};       /* exact target height */
+            height: {{ page.hero_height | default: '152px' }};     /* px fallback for some browsers */
+            background-image: url('{{ page.hero_image | default: '/img/header.jpg' }}');
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
           ">
     <div class="header-content">
       <div class="header-content-inner">
@@ -36,19 +38,12 @@
   </section>
 
   <style>
-    /* Ensure the slim header actually stays slim */
+    /* Keep the header actually slim */
     header.header-slim {
-      position: relative;
       width: 100%;
-      min-height: 0;            /* don't let theme set a bigger min-height */
       text-align: center;
       color: #fff;
-      overflow: hidden;         /* crop the image if needed */
-      background-position: center center;
-      background-size: cover;   /* keep theme look */
     }
-
-    /* Remove large default paddings and center content in the 8cm area */
     header.header-slim .header-content {
       height: 100%;
       padding: 0;
@@ -56,13 +51,11 @@
       align-items: center;      /* vertical center */
       justify-content: center;  /* horizontal center */
     }
-
-    /* Compact typography so it fits in ~8cm nicely */
     header.header-slim .header-content .header-content-inner h1 {
       margin: 0;
       text-transform: uppercase;
       font-weight: 700;
-      font-size: 36px;          /* adjust if you want larger/smaller */
+      font-size: 36px;
       line-height: 1.1;
     }
     header.header-slim .header-content .header-content-inner hr {
@@ -80,15 +73,10 @@
       background: #ffffff;
       color: #222;
     }
-    section.page-section a {
-      color: #1b6ec2;
-      text-decoration: none;
-    }
+    section.page-section a { color: #1b6ec2; text-decoration: none; }
     section.page-section a:hover, section.page-section a:focus {
-      color: #0f4e91;
-      text-decoration: underline;
+      color: #0f4e91; text-decoration: underline;
     }
-    section.page-section .pub-meta { color: rgba(0,0,0,.7); }
   </style>
 
   {% include scripts.html %}
