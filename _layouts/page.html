@@ -6,14 +6,14 @@
 
   <!-- Slim hero for internal pages -->
   <!-- You can override height per page with:
-       hero_height: 4cm   (or "152px")
-       desktop_hero_height: 4cm
+       hero_height: 8cm   (or "304px")
+       desktop_hero_height: 8cm
   -->
   <header class="header-slim"
           style="
             /* Prefer exact cm, but provide px fallback for consistency */
-            height: {{ page.hero_height | default: '4cm' }};
-            height:  {{ page.hero_height | default: '152px' }};
+            height: {{ page.hero_height | default: '8cm' }};
+            height:  {{ page.hero_height | default: '304px' }};
           ">
     <div class="header-content">
       <div class="header-content-inner">
@@ -48,7 +48,7 @@
       background-size: cover;   /* keep theme look */
     }
 
-    /* Remove large default paddings and center content in the 4cm area */
+    /* Remove large default paddings and center content in the 8cm area */
     header.header-slim .header-content {
       height: 100%;
       padding: 0;
@@ -57,7 +57,7 @@
       justify-content: center;  /* horizontal center */
     }
 
-    /* Compact typography so it fits in ~4cm nicely */
+    /* Compact typography so it fits in ~8cm nicely */
     header.header-slim .header-content .header-content-inner h1 {
       margin: 0;
       text-transform: uppercase;
