@@ -5,13 +5,12 @@
   {% include nav.html %}
 
   <!-- Slim hero for internal pages
-       - Set a custom image per page:  hero_image: /img/publications-hero.jpg
-       - Override height per page:     hero_height: 8cm  (px fallback below)
+       Per-page controls in the page front matter:
+       hero_image: /img/publications-hero.jpg
+       hero_height: 8cm   # or 4cm, 180px, etc.
   -->
   <header class="header-slim"
           style="
-            height: {{ page.hero_height | default: '8cm' }};    /* exact cm */
-            height: {{ page.hero_height | default: '304px' }};  /* px fallback (~8cm) */
             background-image: url('{{ page.hero_image | default: '/img/header.jpg' }}');
             background-size: cover;
             background-position: center;
@@ -37,21 +36,51 @@
   </section>
 
   <style>
-    /* Keep the header slim and centered */
-    header.header-slim { width: 100%; text-align: center; color: #fff; }
-    header.header-slim .header-content {
-      height: 100%; padding: 0;
-      display: flex; align-items: center; justify-content: center;
+    /* ===============================
+       FORCE a small hero height
+       =============================== */
+    :root {
+      /* Use per-page value if present; else default to 8cm */
+      --hero-h: {{ page.hero_height | default: '8cm' }};
     }
+    header.header-slim {
+      width: 100%;
+      height: var(--hero-h) !important;   /* <-- hard cap */
+      min-height: 0 !important;
+      text-align: center;
+      color: #fff;
+    }
+
+    /* Kill the theme's big paddings that were making it tall */
+    header.header-slim .header-content {
+      height: 100% !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      display: flex !important;
+      align-items: center !important;      /* vertical center */
+      justify-content: center !important;  /* horizontal center */
+    }
+
+    /* Compact, readable heading inside the small area */
     header.header-slim .header-content .header-content-inner h1 {
-      margin: 0; text-transform: uppercase; font-weight: 700;
-      font-size: 42px; line-height: 1.1;
+      margin: 0;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 42px;
+      line-height: 1.1;
     }
     @media (min-width: 768px) {
-      header.header-slim .header-content .header-content-inner h1 { font-size: 64px; }
+      header.header-slim .header-content .header-content-inner h1 { font-size: 60px; }
+    }
+    header.header-slim .header-content .header-content-inner hr {
+      margin: 12px auto;
     }
     header.header-slim .header-content .header-content-inner p {
-      margin: 6px 0 0; font-size: 16px; color: rgba(255,255,255,.85);
+      margin: 6px 0 0;
+      font-size: 16px;
+      color: rgba(255,255,255,.85);
     }
     @media (min-width: 768px) {
       header.header-slim .header-content .header-content-inner p { font-size: 18px; }
