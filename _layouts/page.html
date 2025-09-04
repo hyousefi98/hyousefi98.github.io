@@ -4,14 +4,17 @@
 <body>
   {% include nav.html %}
 
-  <!-- Slim hero for internal pages (keeps theme background image) -->
-  <!-- Control height per page with front-matter:
-       hero_height: 200px
-       desktop_hero_height: 260px
+  <!-- Slim hero for internal pages -->
+  <!-- You can override height per page with:
+       hero_height: 4cm   (or "152px")
+       desktop_hero_height: 4cm
   -->
   <header class="header-slim"
-          style="--hero-h: {{ page.hero_height | default: '220px' }};
-                 --hero-h-desktop: {{ page.desktop_hero_height | default: '280px' }};">
+          style="
+            /* Prefer exact cm, but provide px fallback for consistency */
+            height: {{ page.hero_height | default: '4cm' }};
+            height:  {{ page.hero_height | default: '152px' }};
+          ">
     <div class="header-content">
       <div class="header-content-inner">
         <h1>{{ page.title }}</h1>
@@ -33,54 +36,55 @@
   </section>
 
   <style>
-    /* Header sizing & layout */
+    /* Ensure the slim header actually stays slim */
     header.header-slim {
       position: relative;
       width: 100%;
-      height: var(--hero-h, 240px);   /* mobile/tablet height */
+      min-height: 0;            /* don't let theme set a bigger min-height */
       text-align: center;
-      color: #fff;                    /* keep theme’s white heading on hero */
+      color: #fff;
+      overflow: hidden;         /* crop the image if needed */
+      background-position: center center;
+      background-size: cover;   /* keep theme look */
     }
-    @media (min-width: 768px) {
-      header.header-slim { height: var(--hero-h-desktop, 300px); } /* desktop height */
-    }
+
+    /* Remove large default paddings and center content in the 4cm area */
     header.header-slim .header-content {
       height: 100%;
-      padding: 0;                     /* remove big vertical padding */
+      padding: 0;
       display: flex;
-      align-items: center;            /* vertical center */
-      justify-content: center;        /* horizontal center */
+      align-items: center;      /* vertical center */
+      justify-content: center;  /* horizontal center */
     }
+
+    /* Compact typography so it fits in ~4cm nicely */
     header.header-slim .header-content .header-content-inner h1 {
       margin: 0;
       text-transform: uppercase;
       font-weight: 700;
-      font-size: 40px;
+      font-size: 36px;          /* adjust if you want larger/smaller */
+      line-height: 1.1;
     }
-    @media (min-width: 768px) {
-      header.header-slim .header-content .header-content-inner h1 { font-size: 56px; }
+    header.header-slim .header-content .header-content-inner hr {
+      margin: 12px auto;
     }
     header.header-slim .header-content .header-content-inner p {
-      margin-bottom: 0;
+      margin: 6px 0 0;
       font-size: 16px;
-      color: rgba(255,255,255,.8);
-    }
-    @media (min-width: 768px) {
-      header.header-slim .header-content .header-content-inner p { font-size: 18px; }
+      color: rgba(255,255,255,.85);
     }
 
-    /* Page section (readable on white) */
+    /* Readable page content */
     section.page-section {
       padding: 40px 0;
       background: #ffffff;
       color: #222;
     }
     section.page-section a {
-      color: #1b6ec2;                 /* accessible link color */
+      color: #1b6ec2;
       text-decoration: none;
     }
-    section.page-section a:hover,
-    section.page-section a:focus {
+    section.page-section a:hover, section.page-section a:focus {
       color: #0f4e91;
       text-decoration: underline;
     }
