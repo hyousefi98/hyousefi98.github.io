@@ -4,7 +4,8 @@
 <body>
   {% include nav.html %}
 
-  <header>
+  <!-- Slim header just for internal pages -->
+  <header class="header-slim">
     <div class="header-content">
       <div class="header-content-inner">
         <h1>{{ page.title }}</h1>
@@ -14,7 +15,8 @@
     </div>
   </header>
 
-  <section id="page" class="bg-primary" style="padding:40px 0;">
+  <!-- Content section on white background for better readability -->
+  <section id="page" class="page-section" style="padding:40px 0; background:#ffffff; color:#222;">
     <div class="container">
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 col-md-12">
@@ -23,6 +25,29 @@
       </div>
     </div>
   </section>
+
+  <style>
+    /* Make the internal-page hero smaller than the homepage */
+    header.header-slim .header-content { padding: 70px 15px; }
+    @media (min-width: 768px) {
+      header.header-slim .header-content { padding: 110px 0; }
+    }
+
+    /* Slightly smaller title on internal pages */
+    header.header-slim .header-content .header-content-inner h1 {
+      font-size: 40px;
+    }
+    @media (min-width: 768px) {
+      header.header-slim .header-content .header-content-inner h1 {
+        font-size: 64px;
+      }
+    }
+
+    /* Improve contrast for links inside the white section */
+    .page-section a { color: #1b6ec2; text-decoration: none; }
+    .page-section a:hover, .page-section a:focus { color: #0f4e91; text-decoration: underline; }
+    .page-section .pub-meta { color: rgba(0,0,0,.7); }
+  </style>
 
   {% include scripts.html %}
 </body>
