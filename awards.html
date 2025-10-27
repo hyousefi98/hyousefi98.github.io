@@ -6,70 +6,183 @@ permalink: /awards.html
 ---
 
 <style>
-.awards-section {
-  margin-top: 30px;
+/* ====== Layout & theme ====== */
+:root{
+  --ink:#222;
+  --muted:rgba(0,0,0,.6);
+  --accent:#d84c3a;              /* matches your hero's warm tones */
+  --soft:#f6f4f3;
+  --ring:rgba(216,76,58,.25);
 }
-.award-list {
-  list-style: none;
-  padding-left: 0;
-  margin-top: 10px;
+
+.awards-wrap{margin-top:24px}
+
+/* ====== Highlights ====== */
+.highlights{
+  display:grid; gap:8px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  margin: 16px 0 28px;
 }
-.award-item {
-  margin-bottom: 14px;
-  line-height: 1.5;
+.chip{
+  display:flex; align-items:center; gap:10px;
+  background:var(--soft); border:1px solid #e9e6e4; border-radius:14px; padding:10px 12px;
+  font-weight:600; letter-spacing:.1px;
 }
-.award-title {
-  font-weight: 600;
+.chip svg{width:18px;height:18px;flex:0 0 18px;fill:var(--accent)}
+
+/* ====== Timeline ====== */
+.timeline{position:relative; margin:6px 0 0 0}
+.time-year{
+  position:sticky; top:10px; z-index:1; font-weight:800; color:var(--accent);
+  background:linear-gradient(90deg,#fff,rgba(255,255,255,.85));
+  padding:6px 10px; border-left:4px solid var(--accent); display:inline-block; margin: 18px 0 10px;
+  border-radius:0 8px 8px 0;
 }
-.award-year {
-  float: right;
-  color: rgba(0,0,0,0.7);
+
+.items{position:relative; margin-left:6px}
+.items:before{
+  content:""; position:absolute; left:10px; top:0; bottom:0; width:2px; background:linear-gradient(var(--accent),transparent 90%);
+  opacity:.25;
+}
+
+/* Card */
+.card{
+  position:relative; margin:14px 0 16px 0; padding:16px 16px 16px 36px; background:#fff;
+  border:1px solid #ece9e7; border-radius:14px; box-shadow:0 1px 0 rgba(0,0,0,.03);
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.card:hover{
+  transform:translateY(-1px);
+  border-color:#eadedb; box-shadow:0 10px 22px rgba(216,76,58,.08);
+}
+.card .dot{
+  position:absolute; left:6px; top:18px; width:12px; height:12px; border-radius:50%;
+  background:var(--accent); box-shadow:0 0 0 6px var(--ring);
+}
+.card-title{font-weight:700}
+.card-meta{color:var(--muted); margin-top:4px}
+.card-year{position:absolute; right:12px; top:12px; font-weight:700; color:var(--muted)}
+.badges{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px}
+.badge{
+  font-size:.85rem; background:var(--soft); border:1px solid #efecea; border-radius:999px; padding:4px 10px; color:var(--muted)
+}
+
+/* Small screens */
+@media (max-width:720px){
+  .card{padding:14px 14px 14px 34px}
+  .card-year{position:static; margin-top:8px}
 }
 </style>
 
-<div class="awards-section">
-  <h2>Honors & Awards</h2>
-  <ul class="award-list">
+<div class="awards-wrap">
 
-    <li class="award-item">
-      <span class="award-title">John W. Harshbarger Memorial Scholarship — Department of Hydrology & Atmospheric Sciences, University of Arizona</span>
-      <span class="award-year">2025</span>
-    </li>
+  <!-- Quick highlights strip -->
+  <div class="highlights" aria-label="Highlights">
+    <div class="chip" title="Department scholarship">
+      <!-- trophy -->
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 3h-1V2H8v1H7a1 1 0 0 0-1 1v2a4 4 0 0 0 3 3.86V12H7v2h10v-2h-2V9.86A4 4 0 0 0 18 6V4a1 1 0 0 0-1-1Zm-9 3V5h1v1a2 2 0 0 1-2-0Zm8 0a2 2 0 0 1-2 2V5h2v1Z"/></svg>
+      John W. Harshbarger Scholarship (2025)
+    </div>
+    <div class="chip" title="Community award">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 9.5 8H3l5.25 3.8L6.5 18 12 14.5 17.5 18l-1.75-6.2L21 8h-6.5Z"/></svg>
+      Tom Meixner Spirit Award (2025)
+    </div>
+    <div class="chip" title="Competition result">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 21h10v-2H7v2Zm5-18a5 5 0 0 0-5 5c0 2.76 5 9 5 9s5-6.24 5-9a5 5 0 0 0-5-5Zm0 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/></svg>
+      Poster — 2nd Place (2025)
+    </div>
+  </div>
 
-    <li class="award-item">
-      <span class="award-title">Tom Meixner Spirit Award (Award to Recognize Community Spirit & Collaboration) — El Día del Agua y la Atmósfera, Department of Hydrology & Atmospheric Sciences, University of Arizona</span>
-      <span class="award-year">2025</span>
-    </li>
+  <!-- Timeline -->
+  <div class="timeline">
 
-    <li class="award-item">
-      <span class="award-title">Second Place — Poster Presentation (Hydrology & Water Resources Management) — El Día del Agua y la Atmósfera, Department of Hydrology & Atmospheric Sciences, University of Arizona</span>
-      <span class="award-year">2025</span>
-    </li>
+    <div class="time-year">2025</div>
+    <div class="items">
 
-    <li class="award-item">
-      <span class="award-title">Ranked 5th among Water Resources Engineering M.Sc. students — University of Tehran</span>
-      <span class="award-year">2022</span>
-    </li>
+      <article class="card" itemscope itemtype="https://schema.org/CreativeWork">
+        <div class="dot" aria-hidden="true"></div>
+        <div class="card-year">2025</div>
+        <div class="card-title" itemprop="name">John W. Harshbarger Memorial Scholarship</div>
+        <div class="card-meta">
+          Department of Hydrology &amp; Atmospheric Sciences, University of Arizona
+        </div>
+        <div class="badges">
+          <span class="badge">Scholarship</span>
+          <span class="badge">Departmental</span>
+        </div>
+      </article>
 
-    <li class="award-item">
-      <span class="award-title">Top 0.03% in University Entrance Exam (Graduate Program), Civil Engineering (Rank 14/47,000)</span>
-      <span class="award-year">2020</span>
-    </li>
+      <article class="card" itemscope itemtype="https://schema.org/CreativeWork">
+        <div class="dot" aria-hidden="true"></div>
+        <div class="card-year">2025</div>
+        <div class="card-title" itemprop="name">Tom Meixner Spirit Award</div>
+        <div class="card-meta">Award to Recognize Community Spirit &amp; Collaboration — El Día del Agua y la Atmósfera, HAS, University of Arizona</div>
+        <div class="badges">
+          <span class="badge">Community</span>
+          <span class="badge">Leadership</span>
+        </div>
+      </article>
 
-    <li class="award-item">
-      <span class="award-title">Direct M.Sc. and Ph.D. admission offers — K. N. Toosi University of Technology</span>
-      <span class="award-year">2020</span>
-    </li>
+      <article class="card" itemscope itemtype="https://schema.org/CreativeWork">
+        <div class="dot" aria-hidden="true"></div>
+        <div class="card-year">2025</div>
+        <div class="card-title" itemprop="name">Second Place — Poster Presentation (Hydrology &amp; Water Resources Management)</div>
+        <div class="card-meta">El Día del Agua y la Atmósfera, HAS, University of Arizona</div>
+        <div class="badges">
+          <span class="badge">Competition</span>
+          <span class="badge">Research</span>
+        </div>
+      </article>
 
-    <li class="award-item">
-      <span class="award-title">Top 10% of Civil Engineering students (Rank 6/70) — K. N. Toosi University of Technology</span>
-      <span class="award-year">2020</span>
-    </li>
+    </div>
 
-    <li class="award-item">
-      <span class="award-title">Top 1% in Iran Nationwide University Entrance Examination (“Konkour”), Math & Physics field (>160,000 participants)</span>
-      <span class="award-year">2016</span>
-    </li>
+    <div class="time-year">2022</div>
+    <div class="items">
+      <article class="card">
+        <div class="dot"></div>
+        <div class="card-year">2022</div>
+        <div class="card-title">Ranked 5th among Water Resources Engineering M.Sc. students</div>
+        <div class="card-meta">University of Tehran</div>
+        <div class="badges"><span class="badge">Academic ranking</span></div>
+      </article>
+    </div>
 
-  </ul>
+    <div class="time-year">2020</div>
+    <div class="items">
+      <article class="card">
+        <div class="dot"></div>
+        <div class="card-year">2020</div>
+        <div class="card-title">Top 0.03% in University Entrance Exam (Graduate Program), Civil Engineering (Rank 14/47,000)</div>
+        <div class="card-meta">Iran</div>
+        <div class="badges"><span class="badge">National exam</span></div>
+      </article>
+
+      <article class="card">
+        <div class="dot"></div>
+        <div class="card-year">2020</div>
+        <div class="card-title">Direct M.Sc. and Ph.D. admission offers</div>
+        <div class="card-meta">K. N. Toosi University of Technology</div>
+        <div class="badges"><span class="badge">Admission offer</span></div>
+      </article>
+
+      <article class="card">
+        <div class="dot"></div>
+        <div class="card-year">2020</div>
+        <div class="card-title">Top 10% of Civil Engineering students (Rank 6/70)</div>
+        <div class="card-meta">K. N. Toosi University of Technology</div>
+        <div class="badges"><span class="badge">Academic ranking</span></div>
+      </article>
+    </div>
+
+    <div class="time-year">2016</div>
+    <div class="items">
+      <article class="card">
+        <div class="dot"></div>
+        <div class="card-year">2016</div>
+        <div class="card-title">Top 1% in Iran Nationwide University Entrance Examination (“Konkour”), Math &amp; Physics field (&gt;160,000 participants)</div>
+        <div class="card-meta">Iran</div>
+        <div class="badges"><span class="badge">National exam</span></div>
+      </article>
+    </div>
+
+  </div>
 </div>
