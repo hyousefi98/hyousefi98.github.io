@@ -5,5 +5,141 @@ subtitle: Get in touch
 permalink: /contact.html
 ---
 
-<h3>Contact</h3>
-<p>This page is under construction. Add your content for <strong>Contact</strong> here.</p>
+<style>
+:root{
+  --ink:#222;
+  --muted:rgba(0,0,0,.66);
+  --accent:#d84c3a;            /* warm accent to match your Awards/hero */
+  --soft:#f6f4f3;
+}
+.contact-wrap{margin-top:24px}
+.grid{
+  display:grid; gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+}
+.card{
+  background:#fff; border:1px solid #ece9e7; border-radius:14px;
+  padding:16px 16px 16px 18px; position:relative;
+  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+.card:hover{ transform:translateY(-2px); border-color:#eadedb; box-shadow:0 10px 22px rgba(216,76,58,.08) }
+.icon{
+  width:22px;height:22px; flex:0 0 22px; margin-right:10px; fill:var(--accent)
+}
+.row{display:flex; align-items:center; line-height:1.5}
+.label{font-size:.9rem; color:var(--muted); margin-top:4px}
+a.link{
+  color:var(--ink); text-decoration:none; border-bottom:1px solid rgba(216,76,58,.35);
+}
+a.link:hover{border-bottom-color:var(--accent)}
+.btns{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
+.btn{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:6px 10px; border-radius:12px; background:var(--soft);
+  border:1px solid #efecea; font-size:.95rem; text-decoration:none; color:var(--ink)
+}
+.btn:hover{border-color:#eadedb}
+.note{margin-top:18px; color:var(--muted); font-size:.95rem}
+@media (max-width:720px){ .grid{grid-template-columns:1fr} }
+</style>
+
+<div class="contact-wrap">
+
+  <div class="grid">
+
+    <!-- Location -->
+    <section class="card" itemscope itemtype="https://schema.org/PostalAddress">
+      <div class="row">
+        <!-- map pin -->
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 4.2 7 13 7 13s7-8.8 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></svg>
+        <div>
+          <div><strong itemprop="addressLocality">Tucson</strong>, <span itemprop="addressRegion">Arizona</span>, USA</div>
+          <div class="label">Local meetings by appointment</div>
+          <div class="btns">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Tucson%2C%20AZ" target="_blank" rel="noopener">Open map</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Email -->
+    <section class="card" itemscope itemtype="https://schema.org/ContactPoint">
+      <div class="row">
+        <!-- envelope -->
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
+        <div>
+          <div><a class="link" href="mailto:Hyousefi@arizona.edu" itemprop="email">Hyousefi@arizona.edu</a></div>
+          <div class="label">Best for research & collaborations</div>
+          <div class="btns">
+            <a class="btn" href="mailto:Hyousefi@arizona.edu?subject=Hello%20from%20your%20website">Write email</a>
+            <a class="btn" href="mailto:Hyousefi@arizona.edu">Copy / open mail app</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phone -->
+    <section class="card">
+      <div class="row">
+        <!-- phone -->
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.26c1.1.36 2.28.56 3.5.56a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C11.3 21 3 12.7 3 2a1 1 0 0 1 1-1h3.54a1 1 0 0 1 1 1c0 1.22.2 2.4.56 3.5a1 1 0 0 1-.26 1L6.6 10.8Z"/></svg>
+        <div>
+          <div><a class="link" href="tel:+15205897119">+1&nbsp;520-589-7119</a></div>
+          <div class="label">Call or text (U.S. MT)</div>
+          <div class="btns">
+            <a class="btn" href="tel:+15205897119">Call</a>
+            <a class="btn" href="sms:+15205897119">Text</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LinkedIn -->
+    <section class="card">
+      <div class="row">
+        <!-- in logo -->
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5Zm.02 6H2V21h3V9.5ZM9 9.5H6v11h3v-6.2c0-3.6 4-3.9 4 0V20.5h3v-6.91c0-5.66-6.18-5.45-7-2.67V9.5Z"/></svg>
+        <div>
+          <div><a class="link" href="https://linkedin.com/in/zane-yousefi1998" target="_blank" rel="noopener">linkedin.com/in/zane-yousefi1998</a></div>
+          <div class="label">Connect for updates & opportunities</div>
+          <div class="btns">
+            <a class="btn" href="https://linkedin.com/in/zane-yousefi1998" target="_blank" rel="noopener">View profile</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORCID -->
+    <section class="card">
+      <div class="row">
+        <!-- ORCID ring -->
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path fill="#fff" d="M10.1 7.5h1.4v9H10.1zM7.6 7.5h1.4v9H7.6zM13.6 7.5h3.2a3.3 3.3 0 1 1 0 6.6h-1.8v2.4h-1.4V7.5zm3.2 5.2a1.9 1.9 0 1 0 0-3.8h-1.8v3.8h1.8z"/></svg>
+        <div>
+          <div><a class="link" href="https://orcid.org/0000-0003-3117-572X" target="_blank" rel="noopener">ORCID: 0000-0003-3117-572X</a></div>
+          <div class="label">Persistent researcher ID</div>
+          <div class="btns">
+            <a class="btn" href="https://orcid.org/0000-0003-3117-572X" target="_blank" rel="noopener">Open ORCID</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <p class="note">
+    Prefer email for research inquiries and collaborations. For time-sensitive items, text works best.
+  </p>
+
+  <!-- Optional: simple mailto form (kept minimal for reliability) -->
+  <!--
+  <form action="mailto:Hyousefi@arizona.edu" method="post" enctype="text/plain" class="card" style="margin-top:16px">
+    <strong style="display:block;margin-bottom:8px">Quick message</strong>
+    <div style="display:grid;gap:8px">
+      <input name="name" placeholder="Your name" style="padding:10px;border:1px solid #ece9e7;border-radius:10px">
+      <input name="email" placeholder="Your email" style="padding:10px;border:1px solid #ece9e7;border-radius:10px">
+      <textarea name="message" rows="4" placeholder="How can I help?" style="padding:10px;border:1px solid #ece9e7;border-radius:10px"></textarea>
+      <button type="submit" class="btn">Open email app</button>
+    </div>
+  </form>
+  -->
+</div>
