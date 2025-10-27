@@ -44,9 +44,9 @@ permalink: /awards.html
   opacity:.25;
 }
 
-/* Card */
+/* ====== Cards ====== */
 .card{
-  position:relative; margin:14px 0 16px 0; padding:16px 16px 16px 36px; background:#fff;
+  position:relative; margin:14px 0 16px 0; padding:16px 16px 16px 18px; background:#fff;
   border:1px solid #ece9e7; border-radius:14px; box-shadow:0 1px 0 rgba(0,0,0,.03);
   transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
@@ -54,10 +54,9 @@ permalink: /awards.html
   transform:translateY(-1px);
   border-color:#eadedb; box-shadow:0 10px 22px rgba(216,76,58,.08);
 }
-.card .dot{
-  position:absolute; left:6px; top:18px; width:12px; height:12px; border-radius:50%;
-  background:var(--accent); box-shadow:0 0 0 6px var(--ring);
-}
+/* remove the red dot markers */
+.card .dot{ display:none !important; }
+
 .card-title{font-weight:700}
 .card-meta{color:var(--muted); margin-top:4px}
 .card-year{position:absolute; right:12px; top:12px; font-weight:700; color:var(--muted)}
@@ -68,7 +67,7 @@ permalink: /awards.html
 
 /* Small screens */
 @media (max-width:720px){
-  .card{padding:14px 14px 14px 34px}
+  .card{padding:14px}
   .card-year{position:static; margin-top:8px}
 }
 </style>
