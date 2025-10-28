@@ -1,10 +1,143 @@
 ---
 layout: page
 title: About
-subtitle: Who I am & what I do
+subtitle: Researcher · Hydrology · Climate Science · Machine Learning
 permalink: /about.html
 ---
 
-<!-- Replace the placeholder content below with your real content. -->
-<h3>About</h3>
-<p>This page is under construction. Add your content for <strong>About</strong> here.</p>
+<style>
+:root{
+  --ink:#222;
+  --muted:rgba(0,0,0,.65);
+  --accent:#d84c3a;
+  --soft:#f6f4f3;
+}
+
+.about-wrap{margin-top:24px;line-height:1.75;font-size:1.05rem;color:var(--ink);}
+h2{margin-top:40px;color:var(--accent);font-weight:700;}
+.section{margin-bottom:32px;}
+.card{
+  background:#fff;border:1px solid #ece9e7;border-radius:14px;
+  padding:20px;margin-top:14px;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(216,76,58,.07);}
+.timeline-item{margin-bottom:12px;}
+.year{float:right;color:var(--muted);font-weight:600;}
+strong{color:var(--accent);}
+</style>
+
+<div class="about-wrap">
+
+  <p>
+    I am <strong>Hossein Yousefi Sohi</strong>, a Ph.D. student in <strong>Hydrology and Water Resources</strong> at the 
+    <a href="https://has.arizona.edu" target="_blank" rel="noopener">University of Arizona</a>. 
+    My research integrates <strong>machine learning, large-domain hydrologic modeling, and climate data analysis</strong> 
+    to improve the understanding and prediction of precipitation, groundwater, and surface water processes—particularly 
+    across arid and semi-arid regions.
+  </p>
+
+  <p>
+    I am advised by <strong>Dr. Ali Behrangi</strong> and collaborate with researchers at NCAR and the Colorado School of Mines. 
+    My work focuses on <strong>AI-driven downscaling</strong>, bias correction of precipitation products, and 
+    <strong>stochastic diffusion modeling</strong> for rainfall and hydrologic forecasting. 
+    I am passionate about developing interpretable, data-driven tools that enhance water-resource decision-making 
+    under climate change.
+  </p>
+
+  <!-- Education -->
+  <h2>Education</h2>
+  <div class="card">
+    <div class="timeline-item"><strong>Ph.D.</strong> in Hydrology and Water Resources — <em>University of Arizona</em> <span class="year">2023–Present</span><br>
+    Research focus: Machine learning and diffusion-based downscaling of precipitation and hydrologic fields.</div>
+    <div class="timeline-item"><strong>M.Sc.</strong> in Water Resources Engineering — <em>University of Tehran</em> <span class="year">2020–2022</span><br>
+    Thesis: Modeling total water storage dynamics and runoff simulation using VIC-WUR model.</div>
+    <div class="timeline-item"><strong>B.Sc.</strong> in Civil Engineering — <em>K. N. Toosi University of Technology</em> <span class="year">2016–2020</span><br>
+    Graduated in the top 10% of class; Direct admission to M.Sc. and Ph.D. programs.</div>
+  </div>
+
+  <!-- Research Interests -->
+  <h2>Research Interests</h2>
+  <div class="card">
+    <ul>
+      <li>Hydrologic modeling and climate data analysis</li>
+      <li>Machine learning and deep learning in Earth sciences</li>
+      <li>Diffusion models and U-Net architectures for precipitation downscaling</li>
+      <li>Groundwater recharge and terrestrial water storage change</li>
+      <li>Bias correction and uncertainty quantification in precipitation datasets</li>
+    </ul>
+  </div>
+
+  <!-- Research & Professional Experience -->
+  <h2>Research & Professional Experience</h2>
+  <div class="card">
+    <div class="timeline-item">
+      <strong>Graduate Research Assistant</strong> — University of Arizona <span class="year">2023–Present</span><br>
+      • Developing deep-learning and diffusion-based models for precipitation downscaling (ERA5, AORC, CONUS404).<br>
+      • Working with large-domain hydrologic simulations and satellite datasets (IMERG, ECOSTRESS, OpenET).<br>
+      • Collaborating with NCAR scientists on stochastic generative modeling for hydrometeorology.
+    </div>
+
+    <div class="timeline-item">
+      <strong>Research Assistant</strong> — University of Tehran <span class="year">2021–2022</span><br>
+      • Modeled spatiotemporal water availability using the VIC-WUR model.<br>
+      • Applied Random Forest and Kriging approaches for bias correction of ensemble precipitation data.<br>
+      • Contributed to published papers in <em>Journal of Hydrology</em> and <em>International Journal of Climatology</em>.
+    </div>
+
+    <div class="timeline-item">
+      <strong>Teaching Assistant</strong> — Sharif University of Technology <span class="year">2020–2021</span><br>
+      • Assisted undergraduate courses in Water Policy and Hydrologic Systems Analysis.<br>
+      • Mentored students on research proposal development and modeling workflows.
+    </div>
+  </div>
+
+  <!-- Leadership & Service -->
+  <h2>Leadership & Service</h2>
+  <div class="card">
+    <div class="timeline-item"><strong>Chair</strong> — <em>El Día del Agua y la Atmósfera 2026</em>, University of Arizona <span class="year">2024–Present</span><br>
+      Leading organization of the department’s annual research symposium, coordinating committees, sponsors, and student engagement.
+    </div>
+    <div class="timeline-item"><strong>Officer</strong> — <em>Hydrology and Atmospheric Sciences Student Association (HASSA)</em> <span class="year">2023–Present</span><br>
+      Supporting student events, academic workshops, and department–community collaboration.
+    </div>
+    <div class="timeline-item"><strong>Mentor</strong> — <em>Graduate Visitor Program (NCAR)</em> <span class="year">2024</span><br>
+      Guided peers in applying for NCAR internships and integrating AI in hydrologic forecasting.
+    </div>
+  </div>
+
+  <!-- Awards -->
+  <h2>Selected Honors & Awards</h2>
+  <div class="card">
+    <ul>
+      <li>John W. Harshbarger Memorial Scholarship — University of Arizona (2025)</li>
+      <li>Tom Meixner Spirit Award — El Día del Agua y la Atmósfera, UArizona (2025)</li>
+      <li>Second Place, Poster Presentation — Hydrology & Water Resources Management (2025)</li>
+      <li>Ranked 5th among M.Sc. students — University of Tehran (2022)</li>
+      <li>Top 0.03% in National Graduate Entrance Exam (Rank 14/47,000) — Iran (2020)</li>
+    </ul>
+  </div>
+
+  <!-- Skills -->
+  <h2>Technical Skills</h2>
+  <div class="card">
+    <ul>
+      <li><strong>Programming:</strong> Python, MATLAB, R, PyTorch, xarray, Dask, NumPy, Pandas</li>
+      <li><strong>Hydrologic Modeling:</strong> VIC, SWAT, BLSTM, Diffusion Models, UNet</li>
+      <li><strong>Data:</strong> ERA5, AORC, IMERG, ECOSTRESS, OpenET, CONUS404</li>
+      <li><strong>Visualization:</strong> Matplotlib, Plotly, GIS, ArcMap</li>
+      <li><strong>Tools:</strong> HPC systems, Hydra, TorchDynamo, Globus, Git, LaTeX</li>
+    </ul>
+  </div>
+
+  <!-- Personal Note -->
+  <h2>Beyond Research</h2>
+  <div class="card">
+    <p>
+      Outside of academia, I’m passionate about <strong>teaching, mentoring, and outreach</strong>. 
+      I enjoy developing creative educational materials that make complex topics in hydrology and data science accessible to a wider audience. 
+      I also believe in the importance of collaboration and community-building in research—bridging science, industry, and policy for real-world impact.
+    </p>
+  </div>
+
+</div>
