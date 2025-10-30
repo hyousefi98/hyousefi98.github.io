@@ -6,25 +6,14 @@ permalink: /about.html
 ---
 
 <style>
-/* ==== Theme, Type & Rhythm ================================================= */
+/* ==== Scoped theme (namespaced under .about-wrap) ========================= */
 :root{
-  --ink:#222;
-  --muted:rgba(0,0,0,.7);
-  --accent:#d84c3a;
-  --soft:#f6f4f3;
-
-  /* Type scale */
+  --ink:#222; --muted:rgba(0,0,0,.7); --accent:#d84c3a; --soft:#f6f4f3;
   --fs-xxl:2.25rem;  /* H1 */
   --fs-xl:1.35rem;   /* H2 */
   --fs-md:1.05rem;   /* Body */
   --fs-sm:.95rem;    /* Meta */
-
-  /* Spacing rhythm */
-  --sp-xxl:40px;
-  --sp-xl:32px;
-  --sp-lg:22px;
-  --sp-md:14px;
-  --sp-sm:10px;
+  --sp-xxl:40px; --sp-xl:32px; --sp-lg:22px; --sp-md:14px; --sp-sm:10px;
 }
 
 .about-wrap{
@@ -35,132 +24,107 @@ permalink: /about.html
   line-height:1.7;
 }
 
-/* Headings */
-h1{
-  color:var(--ink);
-  font-weight:800;
-  font-size:var(--fs-xxl);
-  letter-spacing:-.01em;
-  margin:0 0 var(--sp-sm) 0;
+/* Headings (scoped) */
+.about-wrap h1{
+  color:var(--ink); font-weight:800; font-size:var(--fs-xxl);
+  letter-spacing:-.01em; margin:0 0 var(--sp-sm) 0;
 }
-h2{
-  margin:var(--sp-xxl) 0 var(--sp-md) 0;
-  color:var(--accent);
-  font-size:var(--fs-xl);
-  font-weight:800;
-  letter-spacing:-.01em;
+.about-wrap h2{
+  margin:var(--sp-xxl) 0 var(--sp-md) 0; color:var(--accent);
+  font-size:var(--fs-xl); font-weight:800; letter-spacing:-.01em;
 }
 
 /* Subtitle */
-.subtitle{
-  font-size:1.1rem;
-  color:var(--muted);
-  margin:-2px 0 var(--sp-lg) 0;
-}
+.about-subtitle{ font-size:1.1rem; color:var(--muted); margin:-2px 0 var(--sp-lg) 0; }
 
-/* Cards */
-.card{
-  background:#fff;
-  border:1px solid #ece9e7;
-  border-radius:14px;
-  padding:var(--sp-lg);
-  margin-top:var(--sp-md);
+/* Card */
+.about-card{
+  background:#fff; border:1px solid #ece9e7; border-radius:14px;
+  padding:var(--sp-lg); margin-top:var(--sp-md);
   transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
 }
-.card:hover{
-  transform:translateY(-2px);
-  border-color:#eadedb;
-  box-shadow:0 10px 22px rgba(216,76,58,.08);
-}
+.about-card:hover{ transform:translateY(-2px); border-color:#eadedb; box-shadow:0 10px 22px rgba(216,76,58,.08); }
 
-/* Lists */
-ul{margin:var(--sp-sm) 0 0 0; padding-left:20px;}
-ul li{margin:8px 0;}
-
-/* Links & emphasis */
-a{color:var(--accent); text-decoration:none;}
-a:hover{text-decoration:underline;}
-strong{color:var(--accent)}
-
-/* Row with right-aligned year/meta */
-.row{
-  display:grid;
-  grid-template-columns: 1fr auto;
-  gap:var(--sp-md);
-  align-items:start;
+/* Organized two-column rows (avoid .row name clash) */
+.about-grid{
+  display:grid; grid-template-columns: 1fr auto; gap:var(--sp-md); align-items:start;
 }
-.meta{
-  color:var(--muted);
-  font-size:var(--fs-sm);
-  font-weight:700;
-  white-space:nowrap;
-}
+.about-meta{ color:var(--muted); font-size:var(--fs-sm); font-weight:700; white-space:nowrap; }
+
+/* Lists & links */
+.about-wrap ul{ margin:var(--sp-sm) 0 0 0; padding-left:20px; }
+.about-wrap ul li{ margin:8px 0; }
+.about-wrap a{ color:var(--accent); text-decoration:none; }
+.about-wrap a:hover{ text-decoration:underline; }
+.about-wrap strong{ color:var(--accent); }
+
+/* Soft separators */
+.about-sep{ border:none; border-top:1px solid #f0ecea; margin:14px 0; }
 
 /* Compact paragraphs */
-p{margin:0 0 10px 0;}
-p:last-child{margin-bottom:0}
+.about-wrap p{ margin:0 0 10px 0; }
+.about-wrap p:last-child{ margin-bottom:0; }
 
 /* Mobile */
 @media (max-width:720px){
-  .row{grid-template-columns:1fr;}
-  .meta{margin-top:-4px}
-  h1{font-size:2rem}
-  h2{font-size:1.2rem}
+  .about-grid{ grid-template-columns:1fr; }
+  .about-meta{ margin-top:-4px; }
+  .about-wrap h1{ font-size:2rem; }
+  .about-wrap h2{ font-size:1.2rem; }
 }
 </style>
 
 <div class="about-wrap">
-
   <h1>Zane Yousefi Sohi</h1>
-  <p class="subtitle">Hydrologist · Climate Scientist · Machine Learning Researcher</p>
+  <p class="about-subtitle">Hydrologist · Climate Scientist · Machine Learning Researcher</p>
 
   <!-- Summary -->
-  <div class="card">
-    <div class="row">
+  <section class="about-card">
+    <div class="about-grid">
       <div>
         <p>Ph.D. candidate in Hydrology and Water Resources at the University of Arizona. I build AI-driven models and high-performance data pipelines to downscale, evaluate, and apply hydro-climate datasets for decision-ready water resources insights—especially in arid and semi-arid regions.</p>
         <p>My current work combines <strong>U-Net architectures</strong>, <strong>corrective diffusion</strong>, and scalable Python stacks (xarray · Dask · Zarr · PyTorch) to produce credible, high-resolution forcings and to couple them with land-surface and hydrologic models.</p>
       </div>
-      <div class="meta">Profile</div>
+      <div class="about-meta">Profile</div>
     </div>
-  </div>
+  </section>
 
   <!-- Education -->
   <h2>Education</h2>
-  <div class="card">
-    <div class="row">
-      <div><strong>Ph.D.</strong> Hydrology & Water Resources — <em>University of Arizona, USA</em></div>
-      <div class="meta">Aug 2023 – Present</div>
+  <section class="about-card">
+    <div class="about-grid">
+      <div><strong>Ph.D.</strong> Hydrology &amp; Water Resources — <em>University of Arizona, USA</em></div>
+      <div class="about-meta">Aug 2023 – Present</div>
     </div>
-    <hr style="border:none;border-top:1px solid #f0ecea;margin:14px 0">
-    <div class="row">
+    <hr class="about-sep">
+    <div class="about-grid">
       <div><strong>M.Sc.</strong> Water Resources Engineering — <em>University of Tehran, Iran</em></div>
-      <div class="meta">Sep 2020 – Jul 2023</div>
+      <div class="about-meta">Sep 2020 – Jul 2023</div>
     </div>
-    <hr style="border:none;border-top:1px solid #f0ecea;margin:14px 0">
-    <div class="row">
+    <hr class="about-sep">
+    <div class="about-grid">
       <div><strong>B.Sc.</strong> Civil Engineering — <em>K. N. Toosi University of Technology, Iran</em></div>
-      <div class="meta">Sep 2016 – Sep 2020</div>
+      <div class="about-meta">Sep 2016 – Sep 2020</div>
     </div>
-  </div>
+  </section>
 
   <!-- Research Interests -->
   <h2>Research Interests</h2>
-  <div class="card">
+  <section class="about-card">
     <ul>
       <li>Generative AI and deep learning for hydro-climate downscaling and forecasting</li>
       <li>High-performance climate data engineering (ERA5, AORC, CONUS404, IMERG)</li>
       <li>Hydrologic modeling and evaluation (Noah-MP, VIC-WUR; CRPS, NSE, KGE)</li>
       <li>Groundwater recharge, terrestrial water storage, and drought assessment</li>
     </ul>
-  </div>
+  </section>
 
   <!-- Research Experience -->
   <h2>Research Experience</h2>
-  <div class="card">
-    <div class="row">
+  <section class="about-card">
+    <div class="about-grid">
       <div>
-        <p><strong>Graduate Research Assistant</strong> — University of Arizona, Dept. of Hydrology & Atmospheric Sciences</p>
+        <p><strong>Graduate Research Assistant</strong> — University of Arizona, Dept. of Hydrology &amp; Atmospheric Sciences</p>
         <ul>
           <li>Develop U-Net + diffusion frameworks for multivariable statistical downscaling to kilometer-scale forcings.</li>
           <li>Build GPU-ready pipelines (xarray/Zarr/Dask/PyTorch) to stream and train on terabyte-scale reanalysis data.</li>
@@ -168,12 +132,12 @@ p:last-child{margin-bottom:0}
           <li>Benchmark IMERG V07/V06 and ERA5 against MRMS with regime-aware evaluation over snow/ice conditions.</li>
         </ul>
       </div>
-      <div class="meta">2023 – Present</div>
+      <div class="about-meta">2023 – Present</div>
     </div>
 
-    <hr style="border:none;border-top:1px solid #f0ecea;margin:14px 0">
+    <hr class="about-sep">
 
-    <div class="row">
+    <div class="about-grid">
       <div>
         <p><strong>Research Assistant</strong> — University of Tehran, Dept. of Civil Engineering</p>
         <ul>
@@ -182,14 +146,14 @@ p:last-child{margin-bottom:0}
           <li>Worked on bias-correction of ensemble precipitation data using Random Forest and Kriging.</li>
         </ul>
       </div>
-      <div class="meta">2020 – 2023</div>
+      <div class="about-meta">2020 – 2023</div>
     </div>
-  </div>
+  </section>
 
   <!-- Selected Publications -->
   <h2>Selected Publications</h2>
-  <div class="card">
-    <ul class="pub-list">
+  <section class="about-card">
+    <ul>
       <li>Improving streamflow predictions in the arid Southwestern United States through understanding of baseflow generation mechanisms. <em>Water Resources Research</em>.</li>
       <li>IMERG V07/V06 and ERA5 precipitation performance across snow/ice regimes and temperature ranges. <em>Journal of Hydrometeorology</em>.</li>
       <li>Environmental flow violations in U.S. rivers under human activities and climate change (ML analysis). <em>Ecohydrology</em>.</li>
@@ -199,11 +163,11 @@ p:last-child{margin-bottom:0}
       <li>Triple-coupled RF bias correction for ESM precipitation ensembles. <em>International Journal of Climatology</em>.</li>
     </ul>
     <p style="margin-top:10px">Full list on the <a href="/publications.html">Publications</a> page.</p>
-  </div>
+  </section>
 
   <!-- Selected Projects -->
   <h2>Selected Projects</h2>
-  <div class="card">
+  <section class="about-card">
     <ul>
       <li><strong>Stochastic Generative Downscaling:</strong> Hybrid U-Net + corrective diffusion; ensemble outputs; Noah-MP coupling.</li>
       <li><strong>Cold-Region Precipitation Benchmarking:</strong> IMERG/ERA5 vs MRMS across temperature bands and snow/ice regimes.</li>
@@ -211,28 +175,28 @@ p:last-child{margin-bottom:0}
       <li><strong>Blue/Green Water under Human Impact:</strong> VIC-WUR with withdrawals/return-flows to map water availability.</li>
       <li><strong>Environmental Flow Violations (U.S.):</strong> Random Forest + clustering to reveal regional drivers.</li>
     </ul>
-  </div>
+  </section>
 
   <!-- Teaching -->
   <h2>Teaching</h2>
-  <div class="card">
-    <div class="row">
+  <section class="about-card">
+    <div class="about-grid">
       <div>
-        <p><strong>Teaching Assistant</strong> — University of Tehran (Analysis & Management of Water Resources Systems)</p>
+        <p><strong>Teaching Assistant</strong> — University of Tehran (Analysis &amp; Management of Water Resources Systems)</p>
         <ul>
           <li>Led weekly problem-solving sessions and office hours for graduate cohorts.</li>
           <li>Designed rubrics; provided structured feedback on assignments and projects.</li>
           <li>Supported exam preparation, proctoring, and course material management.</li>
         </ul>
       </div>
-      <div class="meta">2021 – 2022</div>
+      <div class="about-meta">2021 – 2022</div>
     </div>
-  </div>
+  </section>
 
   <!-- Work Experience -->
   <h2>Work Experience</h2>
-  <div class="card">
-    <div class="row">
+  <section class="about-card">
+    <div class="about-grid">
       <div>
         <p><strong>Project Team Member (Project Management)</strong> — ArkaBIM Group, Nasir Innovation Center</p>
         <ul>
@@ -240,13 +204,13 @@ p:last-child{margin-bottom:0}
           <li>Streamlined documentation and cross-team communication for industry collaborations.</li>
         </ul>
       </div>
-      <div class="meta">2018 – 2020</div>
+      <div class="about-meta">2018 – 2020</div>
     </div>
-  </div>
+  </section>
 
   <!-- Leadership & Service -->
-  <h2>Leadership & Service</h2>
-  <div class="card">
+  <h2>Leadership &amp; Service</h2>
+  <section class="about-card">
     <ul>
       <li><strong>Chair</strong> — El Día del Agua y la Atmósfera Symposium Committee (2025–2026)</li>
       <li><strong>Chair</strong> — EarthWeek Internal Symposium Committee (2024–2025)</li>
@@ -254,27 +218,27 @@ p:last-child{margin-bottom:0}
       <li><strong>Member</strong> — EarthWeek Committee (2023–2024)</li>
       <li><strong>Member</strong> — Olympiad Group, K. N. Toosi University (2019–2020)</li>
     </ul>
-  </div>
+  </section>
 
   <!-- Honors & Awards -->
-  <h2>Honors & Awards</h2>
-  <div class="card">
+  <h2>Honors &amp; Awards</h2>
+  <section class="about-card">
     <ul>
       <li>John W. Harshbarger Memorial Scholarship — University of Arizona (2025)</li>
-      <li>Tom Meixner Spirit Award (Community Spirit & Collaboration) — University of Arizona (2025)</li>
+      <li>Tom Meixner Spirit Award (Community Spirit &amp; Collaboration) — University of Arizona (2025)</li>
       <li>Second Place — Poster Presentation, El Día del Agua y la Atmósfera (2025)</li>
       <li>Ranked 5th among M.Sc. students — University of Tehran (2022)</li>
       <li>Top 0.03% Graduate Entrance Exam (Rank 14/47,000) — Iran (2020)</li>
-      <li>Direct M.Sc. & Ph.D. admission offers — K. N. Toosi University of Technology (2020)</li>
+      <li>Direct M.Sc. &amp; Ph.D. admission offers — K. N. Toosi University of Technology (2020)</li>
       <li>Top 10% of Civil Engineering students (Rank 6/70) — K. N. Toosi University of Technology (2020)</li>
-      <li>Top 1% in Iran Nationwide “Konkour” (Math & Physics) (>160,000 participants) (2016)</li>
+      <li>Top 1% in Iran Nationwide “Konkour” (Math &amp; Physics) (&gt;160,000 participants) (2016)</li>
     </ul>
-  </div>
+  </section>
 
   <!-- Contact -->
   <h2>Contact</h2>
-  <div class="card">
-    <div class="row">
+  <section class="about-card">
+    <div class="about-grid">
       <div>
         Tucson, Arizona, USA<br>
         <a href="mailto:Hyousefi@arizona.edu">Hyousefi@arizona.edu</a><br>
@@ -282,8 +246,7 @@ p:last-child{margin-bottom:0}
         <a href="https://linkedin.com/in/zane-yousefi1998" target="_blank" rel="noopener">LinkedIn: zane-yousefi1998</a><br>
         <a href="https://orcid.org/0000-0003-3117-572X" target="_blank" rel="noopener">ORCID: 0000-0003-3117-572X</a>
       </div>
-      <div class="meta">Get in touch</div>
+      <div class="about-meta">Get in touch</div>
     </div>
-  </div>
-
+  </section>
 </div>
