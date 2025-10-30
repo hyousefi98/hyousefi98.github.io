@@ -8,95 +8,92 @@ permalink: /about.html
 <style>
 :root{
   --ink:#222;
-  --muted:rgba(0,0,0,.68);
+  --muted:rgba(0,0,0,.7);
   --accent:#d84c3a;
   --soft:#f6f4f3;
 }
-.about-wrap{margin-top:26px;line-height:1.75;font-size:1.05rem;color:var(--ink);}
-h2{margin-top:40px;color:var(--accent);font-weight:700;}
-.section{margin-bottom:36px;}
-.card{
-  background:#fff;border:1px solid #ece9e7;border-radius:14px;
-  padding:20px;margin-top:14px;
-  transition:transform .15s ease, box-shadow .15s ease;
+
+/* Layout and Typography */
+.about-wrap{
+  margin-top:26px;
+  color:var(--ink);
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto;
+  line-height:1.75;
+  font-size:1.05rem;
 }
-.card:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(216,76,58,.07);}
+h2{
+  margin-top:42px;
+  color:var(--accent);
+  font-weight:700;
+  letter-spacing:-0.01em;
+}
+.card{
+  background:#fff;
+  border:1px solid #ece9e7;
+  border-radius:14px;
+  padding:22px 22px 18px 22px;
+  margin-top:14px;
+  transition:transform .15s ease, box-shadow .15s ease;
+  font-size:1.03rem;
+}
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(216,76,58,.07);
+}
+ul{margin:0;padding-left:20px;}
+ul li{margin-bottom:8px;}
 strong{color:var(--accent);}
-ul{margin:0;padding-left:18px;}
-.year{float:right;color:var(--muted);font-weight:600;}
 a{color:var(--accent);text-decoration:none;}
 a:hover{text-decoration:underline;}
+.year{float:right;color:var(--muted);font-weight:600;}
 </style>
 
 <div class="about-wrap">
-
-  <p>
-    I am <strong>Hossein (Zane) Yousefi Sohi</strong>, a <strong>Ph.D. student in Hydrology and Water Resources</strong> at the 
-    <a href="https://has.arizona.edu/" target="_blank" rel="noopener">University of Arizona</a>, where I work under 
-    the supervision of <strong>Dr. Ali Behrangi</strong> and <strong>Dr. Andrew Bennett</strong>. 
-    My research lies at the intersection of <strong>hydrology, climate science, and machine learning</strong>—developing 
-    next-generation generative AI and deep learning frameworks to better simulate, downscale, and forecast 
-    hydroclimatic processes across scales.
-  </p>
-
-  <p>
-    With a cumulative GPA of <strong>4.0/4.0</strong> throughout my academic career, I am committed to building 
-    high-performance data pipelines and interpretable models that connect scientific theory with 
-    real-world hydrologic applications. My work integrates large-scale datasets such as ERA5, AORC, 
-    and IMERG with physics-informed deep learning approaches to improve predictions of precipitation, 
-    runoff, and terrestrial water storage in data-scarce regions.
-  </p>
 
   <!-- Education -->
   <h2>Education</h2>
   <div class="card">
     <div><strong>Ph.D.</strong> in Hydrology and Water Resources — <em>University of Arizona, Tucson, USA</em> <span class="year">Aug 2023 – Present</span><br>
-      GPA: 4.00/4.00</div><br>
+      GPA: 4.00 / 4.00</div><br>
     <div><strong>M.Sc.</strong> in Water Resources Engineering — <em>University of Tehran, Iran</em> <span class="year">Sep 2020 – Jul 2023</span><br>
-      GPA: 4.00/4.00 (18.13/20.00)</div><br>
+      GPA: 4.00 / 4.00 (18.13 / 20.00)</div><br>
     <div><strong>B.Sc.</strong> in Civil Engineering — <em>K. N. Toosi University of Technology, Iran</em> <span class="year">Sep 2016 – Sep 2020</span><br>
-      GPA: 3.84/4.00 (17.09/20.00)</div>
+      GPA: 3.84 / 4.00 (17.09 / 20.00)</div>
   </div>
 
-  <!-- Core Competencies -->
+  <!-- Research Competencies -->
   <h2>Core Research Competencies</h2>
   <div class="card">
     <ul>
-      <li><strong>Generative AI for Climate Modeling:</strong> Designing and training state-of-the-art deep learning models (U-Net, Corrective Diffusion) in PyTorch for high-resolution statistical downscaling and climate forecasting.</li>
-      <li><strong>High-Performance Data Pipelines:</strong> Engineering scalable workflows using <em>xarray</em>, <em>Dask</em>, and <em>Zarr</em> to process terabyte-scale ERA5 and AORC data efficiently on HPC clusters.</li>
-      <li><strong>Hydrologic Application & Validation:</strong> Coupling downscaled climate outputs with hydrologic models (Noah-MP, VIC-WUR) and validating results using metrics such as NSE, KGE, and CRPS.</li>
+      <li><strong>Generative AI for Climate Modeling:</strong> Design and training of advanced U-Net and diffusion models for multivariable statistical downscaling and forecasting.</li>
+      <li><strong>High-Performance Computing & Data Pipelines:</strong> Large-domain data workflows using <em>xarray</em>, <em>Dask</em>, and <em>Zarr</em> for terabyte-scale climate datasets on HPC clusters.</li>
+      <li><strong>Hydrologic Application & Evaluation:</strong> Coupling downscaled products with models like VIC-WUR and Noah-MP to analyze runoff, recharge, and water-storage dynamics.</li>
     </ul>
   </div>
 
   <!-- Research Experience -->
   <h2>Research Experience</h2>
   <div class="card">
-    <div><strong>University of Arizona</strong> — Department of Hydrology & Atmospheric Sciences <span class="year">2023 – Present</span></div>
-    <p><em>Research Assistant to Dr. Ali Behrangi & Dr. Andrew Bennett</em><br>
-    Project: <strong>AI-Powered Climate Downscaling</strong><br>
-    • Designed a hybrid U-Net + Corrective Diffusion model for multivariable statistical downscaling of reanalysis data.<br>
-    • Built GPU-ready, parallelized pipelines using Python (xarray, Dask, Zarr) to train large models efficiently on HPC clusters.<br>
-    • Coupling downscaled outputs with the Noah-MP land-surface model to assess impacts on drought and hydrologic forecasting.</p>
+    <p><strong>University of Arizona</strong> — Department of Hydrology & Atmospheric Sciences <span class="year">2023 – Present</span></p>
+    <p><em>Graduate Research Assistant (Advisors: Dr. Ali Behrangi & Dr. Andrew Bennett)</em><br>
+    • Development of U-Net + diffusion-based generative models for stochastic rainfall downscaling (ERA5, AORC, CONUS404).<br>
+    • Building GPU-optimized pipelines for model training and spatial patching on HPC systems.<br>
+    • Integration with hydrologic simulations to evaluate effects on runoff, soil moisture, and drought forecasting.</p>
 
-    <p><em>Research Assistant to Dr. Ali Behrangi</em><br>
-    Project: <strong>Evaluation of IMERG V06/V07 and ERA5 Precipitation over Snow-Ice Regimes</strong><br>
-    • Developed a reproducible Python/xarray/Dask workflow for benchmarking IMERG and ERA5 against MRMS data.<br>
-    • Identified regime-specific performance patterns, revealing the strengths of IMERG V07 in snow-free regions and ERA5 over snow/ice surfaces.<br>
-    • Published findings in the <em>Journal of Hydrometeorology</em> (2025).</p>
-
-    <p><strong>University of Tehran</strong> — Department of Civil Engineering <span class="year">2020 – 2023</span><br>
-    • Implemented and calibrated the VIC-WUR hydrologic model to assess basin-scale water availability under anthropogenic stress.<br>
-    • Built a reproducible, GIS-linked modeling workflow for drought and water demand projections.<br>
-    • Findings published in the <em>Journal of Hydrology</em> (2024).</p>
+    <p><strong>University of Tehran</strong> — Department of Civil Engineering <span class="year">2020 – 2023</span></p>
+    <p><em>Research Assistant (Supervisor: Dr. Banafsheh Zahraie)</em><br>
+    • Application of VIC-WUR hydrologic model for assessing basin-scale water availability and storage dynamics.<br>
+    • Bias correction of ensemble precipitation datasets using Random Forest and Kriging.<br>
+    • Contributed to publications in <em>Journal of Hydrology</em> and <em>International Journal of Climatology</em>.</p>
   </div>
 
   <!-- Teaching -->
   <h2>Teaching Experience</h2>
   <div class="card">
     <p><strong>Teaching Assistant</strong> — University of Tehran, Department of Civil Engineering <span class="year">2021 – 2022</span><br>
-    Course: Analysis and Management of Water Resources Systems (Instructor: Dr. Banafsheh Zahraie)<br>
-    • Conducted weekly problem-solving sessions and office hours to reinforce key hydrologic concepts.<br>
-    • Designed grading rubrics and provided detailed feedback to support student learning outcomes.</p>
+    Course: Analysis and Management of Water Resources Systems<br>
+    • Led practical sessions, guided research assignments, and provided structured feedback.<br>
+    • Designed example problem sets and review materials for graduate students.</p>
   </div>
 
   <!-- Leadership -->
@@ -104,20 +101,20 @@ a:hover{text-decoration:underline;}
   <div class="card">
     <ul>
       <li><strong>Chair</strong> — El Día del Agua y la Atmósfera Symposium (2025–2026), University of Arizona<br>
-        Leading organization of the department’s flagship research symposium for 160+ attendees and 50+ presenters.</li>
+        Coordinating event logistics, sponsorships, and scientific sessions for 150+ attendees.</li>
       <li><strong>Chair</strong> — EarthWeek Internal Symposium (2024–2025), University of Arizona<br>
-        Oversaw a 14-member interdepartmental team across seven departments to deliver a successful university-wide research showcase.</li>
+        Oversaw multi-department collaboration and planning across seven university units.</li>
       <li><strong>Member</strong> — El Día and EarthWeek Committees (2023–2025)<br>
-        Supported event logistics, communications, and student engagement initiatives.</li>
+        Supporting departmental engagement and student-led academic initiatives.</li>
       <li><strong>Project Manager</strong> — ArkaBIM Group Startup (2018–2020), Nasir Innovation Center<br>
-        Coordinated cross-functional planning, workflow optimization, and documentation for a 14-member project team, improving client alignment and delivery efficiency.</li>
+        Managed a 14-member engineering team, improving project delivery and workflow efficiency.</li>
     </ul>
   </div>
 
   <!-- Publications -->
   <h2>Publications</h2>
   <div class="card">
-    <p>Author or co-author of <strong>7 peer-reviewed papers</strong> in top-tier journals, including:</p>
+    <p>Author or co-author of <strong>7 peer-reviewed journal papers</strong> in the following outlets:</p>
     <ul>
       <li><em>Water Resources Research</em></li>
       <li><em>Journal of Hydrology</em></li>
@@ -134,7 +131,7 @@ a:hover{text-decoration:underline;}
     <ul>
       <li>John W. Harshbarger Memorial Scholarship — University of Arizona (2025)</li>
       <li>Tom Meixner Spirit Award — University of Arizona (2025)</li>
-      <li>Second Place, Poster Presentation — El Día del Agua y la Atmósfera (2025)</li>
+      <li>Second Place Poster Presentation — El Día del Agua y la Atmósfera (2025)</li>
       <li>Ranked 5th among M.Sc. students — University of Tehran (2022)</li>
       <li>Top 0.03% (Rank 14/47,000) — Iran National Graduate Exam (2020)</li>
     </ul>
@@ -144,7 +141,7 @@ a:hover{text-decoration:underline;}
   <h2>Contact</h2>
   <div class="card">
     <p>
-      Tucson, Arizona<br>
+      Tucson, Arizona, USA<br>
       <a href="mailto:Hyousefi@arizona.edu">Hyousefi@arizona.edu</a><br>
       <a href="tel:+15205897119">+1 (520) 589-7119</a><br>
       <a href="https://linkedin.com/in/zane-yousefi1998" target="_blank">LinkedIn: zane-yousefi1998</a><br>
