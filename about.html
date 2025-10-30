@@ -6,67 +6,113 @@ permalink: /about.html
 ---
 
 <style>
+/* ==== Theme & type scale ================================================== */
 :root{
   --ink:#222;
   --muted:rgba(0,0,0,.7);
   --accent:#d84c3a;
   --soft:#f6f4f3;
+
+  /* Type scale (consistent everywhere) */
+  --fs-xxl:2.25rem;   /* page title */
+  --fs-xl:1.35rem;    /* h2 */
+  --fs-md:1.05rem;    /* body & list */
+  --fs-sm:.95rem;     /* meta labels */
+  --lh:1.7;           /* line-height baseline */
+
+  /* Spacing rhythm */
+  --sp-xxl:40px;
+  --sp-xl:32px;
+  --sp-lg:22px;
+  --sp-md:14px;
+  --sp-sm:10px;
 }
 
-/* Layout and Typography */
 .about-wrap{
-  margin-top:26px;
+  margin-top:var(--sp-md);
   color:var(--ink);
-  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto;
-  line-height:1.75;
-  font-size:1.05rem;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size:var(--fs-md);
+  line-height:var(--lh);
 }
+
+/* Headings use one scale consistently */
 h1{
   color:var(--ink);
-  font-weight:700;
-  font-size: 2.5rem;
-  letter-spacing:-0.02em;
-  margin-bottom: 8px;
+  font-weight:800;
+  font-size:var(--fs-xxl);
+  letter-spacing:-.01em;
+  margin:0 0 var(--sp-sm) 0;
 }
 h2{
-  margin-top:42px;
+  margin:var(--sp-xxl) 0 var(--sp-md) 0;
   color:var(--accent);
-  font-weight:700;
-  letter-spacing:-0.01em;
+  font-size:var(--fs-xl);
+  font-weight:800;
+  letter-spacing:-.01em;
 }
-.subtitle {
-  font-size: 1.25rem;
-  color: var(--muted);
-  margin-top: -4px;
-  margin-bottom: 24px;
+
+/* Subtitle under the H1 */
+.subtitle{
+  font-size:1.1rem;
+  color:var(--muted);
+  margin: -2px 0 var(--sp-lg) 0;
 }
+
+/* Cards are uniform everywhere */
 .card{
   background:#fff;
   border:1px solid #ece9e7;
   border-radius:14px;
-  padding:22px 22px 18px 22px;
-  margin-top:14px;
-  transition:transform .15s ease, box-shadow .15s ease;
-  font-size:1.03rem;
+  padding:var(--sp-lg);
+  margin-top:var(--sp-md);
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
 }
 .card:hover{
   transform:translateY(-2px);
-  box-shadow:0 8px 20px rgba(216,76,58,.07);
+  border-color:#eadedb;
+  box-shadow:0 10px 22px rgba(216,76,58,.08);
 }
-ul{margin:12px 0;padding-left:20px;}
-ul li{margin-bottom:10px;}
-p { margin-top: 0; margin-bottom: 12px; }
-p:last-child { margin-bottom: 0; }
-strong{color:var(--accent);}
-a{color:var(--accent);text-decoration:none;}
+
+/* Lists — one style for all */
+ul{margin:var(--sp-sm) 0 0 0; padding-left:20px;}
+ul li{margin:8px 0;}
+
+/* Links */
+a{color:var(--accent); text-decoration:none;}
 a:hover{text-decoration:underline;}
-.year{float:right;color:var(--muted);font-weight:600; font-size: 0.95rem;}
-.pub-list li {
-    margin-bottom: 16px;
-    line-height: 1.6;
+strong{color:var(--accent)}
+
+/* Two-column rows with right-aligned year that collapses on mobile */
+.row{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:var(--sp-md);
+  align-items:start;
 }
-.project-list li {
-    font-size: 0.98rem;
+.year{
+  color:var(--muted);
+  font-size:var(--fs-sm);
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* Compact paragraphs inside cards */
+p{margin:0 0 10px 0;}
+p:last-child{margin-bottom:0}
+
+/* Publication list spacing */
+.pub-list li{margin:12px 0; line-height:var(--lh)}
+
+/* Project list slightly smaller but consistent */
+.project-list li{font-size:var(--fs-md)}
+
+/* Mobile adjustments */
+@media (max-width:720px){
+  .row{grid-template-columns:1fr;}
+  .year{margin-top:-4px}
+  h1{font-size:2rem}
+  h2{font-size:1.2rem}
 }
 </style>
 
@@ -76,68 +122,86 @@ a:hover{text-decoration:underline;}
   <p class="subtitle">Hydrologist · Climate Scientist · Machine Learning Researcher</p>
 
   <div class="card">
-    <p>I am a <strong>Ph.D. candidate in Hydrology and Water Resources at the University of Arizona</strong>[cite: 5, 6]. My research focuses on the intersection of climate science, hydrologic modeling, and artificial intelligence.</p>
-    <p>I specialize in designing and training state-of-the-art deep learning models, including <strong>U-Net architectures and Corrective Diffusion (CorrDiff)</strong> [cite: 18], to perform high-resolution statistical downscaling of climate data[cite: 18]. I build <strong>high-performance data pipelines</strong> using Python, xarray, Dask, and Zarr to process terabyte-scale geoscientific datasets (like ERA5 and AORC) on HPC clusters[cite: 19, 28].</p>
-    <p>Ultimately, my goal is to couple these downscaled AI-generated outputs with land-surface models (like Noah-MP and VIC-WUR) to improve hydrologic forecasting, water availability assessment, and drought simulation[cite: 20, 29, 40].</p>
+    <div class="row">
+      <div>
+        <p>I am a <strong>Ph.D. candidate in Hydrology and Water Resources at the University of Arizona</strong>[cite: 5, 6]. My research focuses on the intersection of climate science, hydrologic modeling, and artificial intelligence.</p>
+        <p>I specialize in designing and training state-of-the-art deep learning models, including <strong>U-Net architectures and Corrective Diffusion (CorrDiff)</strong> [cite: 18], to perform high-resolution statistical downscaling of climate data[cite: 18]. I build <strong>high-performance data pipelines</strong> using Python, xarray, Dask, and Zarr to process terabyte-scale geoscientific datasets (like ERA5 and AORC) on HPC clusters[cite: 19, 28].</p>
+        <p>Ultimately, my goal is to couple these downscaled AI-generated outputs with land-surface models (like Noah-MP and VIC-WUR) to improve hydrologic forecasting, water availability assessment, and drought simulation[cite: 20, 29, 40].</p>
+      </div>
+      <div class="year">Profile</div>
+    </div>
   </div>
 
   <h2>Education</h2>
   <div class="card">
-    <div><strong>Ph.D.</strong> in Hydrology and Water Resources — <em>University of Arizona, Tucson, USA</em> <span class="year">Aug 2023 – Present [cite: 5, 6, 14]</span><br>
-      GPA: 4.00 / 4.00 [cite: 7]</div><br>
-    <div><strong>M.Sc.</strong> in Water Resources Engineering — <em>University of Tehran, Iran</em> <span class="year">Sep 2020 – Jul 2023 [cite: 8, 9, 15]</span><br>
-      GPA: 4.00 / 4.00 (18.13 / 20.00) [cite: 10]</div><br>
-    <div><strong>B.Sc.</strong> in Civil Engineering — <em>K. N. Toosi University of Technology, Iran</em> <span class="year">Sep 2016 – Sep 2020 [cite: 11, 12, 16]</span><br>
-      GPA: 3.84 / 4.00 (17.09 / 20.00) [cite: 13]</div>
+    <div class="row">
+      <div><strong>Ph.D.</strong> in Hydrology and Water Resources — <em>University of Arizona, Tucson, USA</em><br>GPA: 4.00 / 4.00 [cite: 7]</div>
+      <div class="year">Aug 2023 – Present [cite: 5, 6, 14]</div>
+    </div>
+    <hr style="border:none;border-top:1px solid #f0ecea;margin:var(--sp-md) 0">
+    <div class="row">
+      <div><strong>M.Sc.</strong> in Water Resources Engineering — <em>University of Tehran, Iran</em><br>GPA: 4.00 / 4.00 (18.13 / 20.00) [cite: 10]</div>
+      <div class="year">Sep 2020 – Jul 2023 [cite: 8, 9, 15]</div>
+    </div>
+    <hr style="border:none;border-top:1px solid #f0ecea;margin:var(--sp-md) 0">
+    <div class="row">
+      <div><strong>B.Sc.</strong> in Civil Engineering — <em>K. N. Toosi University of Technology, Iran</em><br>GPA: 3.84 / 4.00 (17.09 / 20.00) [cite: 13]</div>
+      <div class="year">Sep 2016 – Sep 2020 [cite: 11, 12, 16]</div>
+    </div>
   </div>
 
   <h2>Core Research Competencies</h2>
   <div class="card">
     <ul>
-      <li><strong>Generative AI Modeling:</strong> Designing and training state-of-the-art deep learning models, including U-Net architectures and Corrective Diffusion (CorrDiff), in Python (PyTorch) to perform high-resolution statistical downscaling of climate data. [cite: 18]</li>
-      <li><strong>High-Performance Data Pipelines:</strong> Engineering scalable, end-to-end workflows for processing terabyte-scale geoscientific datasets (ERA5, AORC) on HPC clusters, using a modern stack of xarray, Dask, and Zarr for efficient, parallelized computation. [cite: 19]</li>
-      <li><strong>Hydrologic Application & Validation:</strong> Coupling downscaled model outputs with land-surface models (Noah-MP, VIC-WUR) and applying rigorous statistical validation (CRPS, NSE, KGE) to ensure the scientific impact and real-world relevance of my work. [cite: 20]</li>
+      <li><strong>Generative AI Modeling:</strong> Designing and training U-Net and Corrective Diffusion models in PyTorch for multivariable statistical downscaling. [cite: 18]</li>
+      <li><strong>High-Performance Data Pipelines:</strong> Scalable ERA5/AORC workflows on HPC (xarray · Dask · Zarr) with parallel IO and chunking strategies. [cite: 19]</li>
+      <li><strong>Hydrologic Application & Validation:</strong> Coupling to Noah-MP/VIC-WUR; rigorous metrics (CRPS, NSE, KGE) for decision-grade evaluation. [cite: 20]</li>
     </ul>
   </div>
 
   <h2>Research Experience</h2>
   <div class="card">
-    <p><strong>University of Arizona</strong> — Dept. of Hydrology & Atmospheric Sciences <span class="year">2023 – Present [cite: 22, 25]</span></p>
-    <p><em>Research Assistant (Projects: AI-Powered Climate Downscaling & IMERG Evaluation)</em> [cite: 23, 24, 30, 31]</p>
-    <ul>
-        <li>Designed a U-Net + corrective diffusion (CorrDiff) prototype for multivariable statistical downscaling from coarse reanalysis to km-scale meteorological fields. [cite: 27]</li>
-        <li>Built a GPU-ready Python data pipeline using xarray, Zarr, and Dask to stream terabyte-scale ERA5 and AORC data for accelerated training on HPC clusters. [cite: 28]</li>
-        <li>Developing an interface to feed downscaled forcings into the Noah-MP land-surface model to evaluate impacts on hydrologic forecasting and drought simulation (in progress). [cite: 29]</li>
-        <li>Built a scalable, reproducible evaluation pipeline (Python/xarray/Dask) to benchmark IMERG and ERA5 precipitation against MRMS radar-gauge data across various snow/ice conditions. [cite: 33]</li>
-        <li>Delivered regime-aware accuracy profiles providing actionable guidance for product selection in cold-regions modeling. [cite: 34]</li>
-    </ul>
+    <div class="row">
+      <div>
+        <p><strong>University of Arizona</strong> — Dept. of Hydrology & Atmospheric Sciences</p>
+        <p><em>Research Assistant (AI-Powered Climate Downscaling & IMERG Evaluation)</em> [cite: 23, 24, 30, 31]</p>
+        <ul>
+          <li>U-Net + CorrDiff prototype for km-scale downscaling from reanalysis. [cite: 27]</li>
+          <li>GPU-ready pipeline (xarray/Zarr/Dask) for streaming TB-scale ERA5/AORC on HPC. [cite: 28]</li>
+          <li>Interface to Noah-MP for hydrologic forecasting and drought assessment. [cite: 29]</li>
+          <li>Reproducible benchmarking of IMERG V07/V06 and ERA5 vs MRMS across snow/ice regimes. [cite: 33, 34]</li>
+        </ul>
+      </div>
+      <div class="year">2023 – Present [cite: 22, 25]</div>
+    </div>
 
-    <p><strong>University of Tehran</strong> — Department of Civil Engineering <span class="year">2020 – 2023 [cite: 36, 39]</span></p>
-    <p><em>Research Assistant (Project: Application of VIC-WUR)</em> [cite: 38]</p>
-    <ul>
-      <li>Implemented and calibrated the VIC-WUR hydrologic model to quantify spatiotemporal water availability under human influences, producing basin-scale maps and time series for analysis. [cite: 40]</li>
-      <li>Built a reproducible modeling workflow (Python/MATLAB + GIS) for data preparation, parameter tuning, and evaluation (e.g., NSE/KGE), enabling scenario testing for drought and demand growth. [cite: 41]</li>
-      <li>Delivered decision-ready GIS products and documented notebooks to support stakeholder planning and water resource management operations. [cite: 42]</li>
-    </ul>
+    <hr style="border:none;border-top:1px solid #f0ecea;margin:var(--sp-md) 0">
+
+    <div class="row">
+      <div>
+        <p><strong>University of Tehran</strong> — Department of Civil Engineering</p>
+        <p><em>Research Assistant (Application of VIC-WUR)</em> [cite: 38]</p>
+        <ul>
+          <li>Implemented VIC-WUR for water availability under anthropogenic stress. [cite: 40]</li>
+          <li>Built MATLAB/GIS workflow for data prep, calibration, NSE/KGE evaluation. [cite: 41]</li>
+          <li>Delivered GIS products & notebooks for stakeholder planning. [cite: 42]</li>
+        </ul>
+      </div>
+      <div class="year">2020 – 2023 [cite: 36, 39]</div>
+    </div>
   </div>
 
   <h2>Publications</h2>
   <div class="card">
-    <p>Author or co-author of <strong>7 peer-reviewed journal papers</strong> (full list below): [cite: 72]</p>
+    <p>Author or co-author of <strong>7 peer-reviewed journal papers</strong> (selected): [cite: 72]</p>
     <ul class="pub-list">
-      <li>Farmani, M. A., Tavakoly, A., Behrangi, A., Qiu, Y., Gupta, A., <strong>Yousefi Sohi, H.</strong>, Jawad, M., Zhang, X., Geheran, M., & Niu, G.-Y. (2025). Improving streamflow predictions in the arid Southwestern United States through understanding of baseflow generation mechanisms. <em>Water Resources Research</em>, (accepted, in press). [cite: 73, 74, 75]</li>
-      
-      <li><strong>Yousefi Sohi, H.</strong>, Farmani, M. A., & Behrangi, A. (2025). How do IMERG V07, IMERG V06, and ERA5 precipitation products perform over snow-ice-free and snow-ice-covered surfaces at a range of near-surface temperatures? <em>Journal of Hydrometeorology</em>, 27(7), 837-855. [cite: 76, 77, 78]</li>
-      
-      <li>Razeghi, A., Zahraie, B., <strong>Yousefi Sohi, H.</strong> (2025). Assessing Environmental Flow Violations in United States Rivers: Exploring the Impact of Human Activities and Climate Change using Machine Learning. <em>Ecohydrology</em>, 18(6), e70101. [cite: 79, 80]</li>
-      
-      <li>Qiu, Y., Famiglietti, J. S., Behrangi, A., Farmani, M. A., <strong>Yousefi Sohi, H.</strong>, Jawad, M., Gupta, A., Hung, F., & Niu, G.-Y. (2025). The strong impact of precipitation intensity on groundwater recharge and terrestrial water storage change in Arizona, a typical dryland. <em>Geophysical Research Letters</em>. [cite: 81, 82, 83]</li>
-      
-      <li>Jawad, M., Behrangi, A., Farmani, M. A., Qiu, Y., <strong>Yousefi Sohi, H.</strong>, Gupta, A., & Niu, G.-Y. (2025). Improved evapotranspiration estimation using the Penman-Monteith equation with a deep learning (DNN) model over the dry Southwestern US: Comparison with ECOSTRESS, MODIS, and OpenET. <em>Journal of Hydrology</em>, 133460. [cite: 84, 85, 86]</li>
-      
-      <li><strong>Yousefi Sohi, H.</strong>, Zahraie, B., Dolatabadi, N., & Zebarjadian, F. (2024). Application of VIC-WUR model for assessing the spatiotemporal distribution of water availability in anthropogenically impacted basins. <em>Journal of Hydrology</em>, 131365. [cite: 87, 88, 89]</li>
-      
-      <li>Zebarjadian, F., Dolatabadi, N., Zahraie, B., <strong>Yousefi Sohi, H.</strong>, & Zandi, O. (2024). Triple coupling random forest approach for bias correction of ensemble precipitation data derived from Earth system models for Divandareh-Bijar Basin (Western Iran). <em>International Journal of Climatology</em>, 1-28. [cite: 91, 92, 93]</li>
+      <li>Farmani, M.A., Tavakoly, A., Behrangi, A., Qiu, Y., Gupta, A., <strong>Yousefi Sohi, H.</strong>, et al. (2025). Improving streamflow predictions… <em>Water Resources Research</em> (in press). [cite: 73–75]</li>
+      <li><strong>Yousefi Sohi, H.</strong>, Farmani, M.A., & Behrangi, A. (2025). IMERG V07/V06 vs ERA5 over snow/ice regimes. <em>Journal of Hydrometeorology</em> 27(7), 837–855. [cite: 76–78]</li>
+      <li>Razeghi, A., Zahraie, B., <strong>Yousefi Sohi, H.</strong> (2025). Environmental Flow Violations… <em>Ecohydrology</em> 18(6), e70101. [cite: 79,80]</li>
+      <li>Qiu, Y., Famiglietti, J.S., Behrangi, A., Farmani, M.A., <strong>Yousefi Sohi, H.</strong>, et al. (2025). Precipitation intensity & recharge in Arizona. <em>GRL</em>. [cite: 81–83]</li>
+      <li>Jawad, M., Behrangi, A., Farmani, M.A., Qiu, Y., <strong>Yousefi Sohi, H.</strong>, et al. (2025). DNN Penman–Monteith ET. <em>Journal of Hydrology</em> 133460. [cite: 84–86]</li>
+      <li><strong>Yousefi Sohi, H.</strong>, Zahraie, B., Dolatabadi, N., Zebarjadian, F. (2024). VIC-WUR water availability in impacted basins. <em>Journal of Hydrology</em> 131365. [cite: 87–89]</li>
+      <li>Zebarjadian, F., Dolatabadi, N., Zahraie, B., <strong>Yousefi Sohi, H.</strong>, Zandi, O. (2024). Triple-coupled RF bias correction. <em>Int. J. Climatology</em>. [cite: 91–93]</li>
     </ul>
   </div>
 
@@ -145,80 +209,91 @@ a:hover{text-decoration:underline;}
   <div class="card">
     <p><strong>Graduate Projects</strong> [cite: 52]</p>
     <ul class="project-list">
-      <li><strong>Stochastic Generative Downscaling for Hydroclimate:</strong> Hybrid U-Net + diffusion framework to downscale ERA5 to km-scale fields with ensemble uncertainty; validated against operational datasets and coupled to Noah-MP. [cite: 53, 54]</li>
-      <li><strong>Benchmarking Satellite/Reanalysis Precipitation in Cold Regions:</strong> Reproducible pipeline comparing IMERG V07/V06 and ERA5 vs. MRMS across temperature bands and snow/ice regimes. [cite: 55, 56]</li>
-      <li><strong>Triple-Coupled RF Bias Correction for CMIP6:</strong> Ensemble bias-correction workflow combining rainy-day classification with extreme/non-extreme regressors. [cite: 57, 58]</li>
-      <li><strong>Blue/Green Water under Anthropogenic Stress (VIC-WUR):</strong> Withdrawals/return-flow modules to map water availability. [cite: 59]</li>
-      <li><strong>Environmental Flow Violations (U.S.) with ML:</strong> RF + clustering across gauges; region-specific drivers and performance ranges. [cite: 60]</li>
-      <li>Designed a fuzzy inference system (FIS) for rule-based dam operation (MATLAB). [cite: 61]</li>
-      <li>Optimized hydropower dispatch using a genetic algorithm (MATLAB). [cite: 62]</li>
-      <li>Modeled groundwater flow and pollutant transport with MODFLOW. [cite: 63]</li>
+      <li><strong>Stochastic Generative Downscaling:</strong> U-Net + diffusion; ensemble uncertainty; Noah-MP coupling. [cite: 53,54]</li>
+      <li><strong>Cold-Region Precip Evaluation:</strong> IMERG/ERA5 vs MRMS across temperature bands & snow/ice. [cite: 55,56]</li>
+      <li><strong>Triple-Coupled RF for CMIP6:</strong> Rain/no-rain classification + extreme/non-extreme regressors. [cite: 57,58]</li>
+      <li><strong>Blue/Green Water (VIC-WUR):</strong> Withdrawals/return-flows; water availability mapping. [cite: 59]</li>
+      <li><strong>US E-flow Violations (ML):</strong> RF + clustering; region-specific drivers. [cite: 60]</li>
+      <li>FIS for dam operation (MATLAB). [cite: 61]</li>
+      <li>Hydropower dispatch optimization (GA). [cite: 62]</li>
+      <li>Groundwater flow & transport (MODFLOW). [cite: 63]</li>
     </ul>
-    <p><strong>Undergraduate Projects</strong> [cite: 66]</p>
+
+    <p style="margin-top:var(--sp-md)"><strong>Undergraduate Projects</strong> [cite: 66]</p>
     <ul class="project-list">
-      <li>Linear programming models in LINGO for civil systems analysis. [cite: 67]</li>
-      <li>Modeled agricultural irrigation channels with Autodesk Storm & Sanitary Analysis. [cite: 68]</li>
-      <li>Modeled urban water-supply networks using WaterGEMS. [cite: 69]</li>
+      <li>Linear programming models in LINGO. [cite: 67]</li>
+      <li>Autodesk Storm & Sanitary Analysis for irrigation channels. [cite: 68]</li>
+      <li>Urban water-supply networks with WaterGEMS. [cite: 69]</li>
     </ul>
   </div>
 
   <h2>Teaching Experience</h2>
   <div class="card">
-    <p><strong>Teaching Assistant</strong> — University of Tehran, Dept. of Civil Engineering <span class="year">2021 – 2022 [cite: 44, 47]</span><br>
-    Course: Analysis and Management of Water Resources Systems [cite: 45]</p>
-    <ul>
-      <li>Guided students through complex concepts in water-resources systems by facilitating weekly problem-solving sessions and holding office hours. [cite: 48]</li>
-      <li>Developed grading rubrics and evaluated homework and term projects, providing detailed, actionable feedback. [cite: 49]</li>
-      <li>Coordinated with the instructor to prepare and proctor exams and manage course materials. [cite: 50]</li>
-    </ul>
+    <div class="row">
+      <div>
+        <p><strong>Teaching Assistant</strong> — University of Tehran, Dept. of Civil Engineering</p>
+        <p>Course: Analysis & Management of Water Resources Systems [cite: 45]</p>
+        <ul>
+          <li>Led weekly problem-solving sessions and office hours. [cite: 48]</li>
+          <li>Developed rubrics and gave structured feedback on assignments and projects. [cite: 49]</li>
+          <li>Supported exam prep/proctoring and course material management. [cite: 50]</li>
+        </ul>
+      </div>
+      <div class="year">2021 – 2022 [cite: 44, 47]</div>
+    </div>
   </div>
-  
+
   <h2>Work Experience</h2>
   <div class="card">
-      <p><strong>Team Member, Project Management</strong> — ArkaBIM Group (Startup) <span class="year">2018 – 2020 [cite: 97, 98, 100]</span><br>
-      <em>Nasir Innovation Center, K. N. Toosi University of Technology</em> [cite: 97, 99]</p>
-      <ul>
-          <li>Coordinated project planning and task delegation within a 14-member team on multiple student-industry collaborations, ensuring all project milestones were met on schedule. [cite: 101]</li>
-          <li>Developed and implemented a streamlined workflow for project documentation and cross-team communication, resulting in clearer reporting and improved alignment with industry partner expectations. [cite: 102]</li>
-      </ul>
+    <div class="row">
+      <div>
+        <p><strong>Team Member, Project Management</strong> — ArkaBIM Group (Startup), Nasir Innovation Center</p>
+        <ul>
+          <li>Coordinated planning & delegation across a 14-member team for industry collaborations. [cite: 101]</li>
+          <li>Streamlined documentation & cross-team comms, improving delivery quality. [cite: 102]</li>
+        </ul>
+      </div>
+      <div class="year">2018 – 2020 [cite: 97–100]</div>
+    </div>
   </div>
 
   <h2>Leadership & Professional Service</h2>
   <div class="card">
     <ul>
-      <li><strong>Chair</strong> — El Día del Agua y la Atmósfera Symposium Committee, Univ. of Arizona (2025–2026) [cite: 104, 105]<br>
-      Leading a 5-student committee to organize the departmental symposium for 160+ attendees and 50+ presenters. [cite: 106]</li>
-      <li><strong>Chair</strong> — EarthWeek Internal Symposium Committee, Univ. of Arizona (2024–2025) [cite: 107, 108]<br>
-      Chaired a 14-member interdepartmental committee representing 7 departments to execute the university's research showcase. [cite: 109]</li>
-      <li><strong>Member</strong> — El Día del Agua y la Atmósfera Symposium Committee, Univ. of Arizona (2023–2025) [cite: 110, 113]</li>
-      <li><strong>Member</strong> — EarthWeek Internal Symposium Committee, Univ. of Arizona (2023–2024) [cite: 111, 114]</li>
-      <li><strong>Member</strong> — Olympiad Group, K. N. Toosi Univ. of Technology (2019–2020) [cite: 112, 115]</li>
+      <li><strong>Chair</strong> — El Día del Agua y la Atmósfera Symposium Committee (2025–2026) [cite: 104–106]</li>
+      <li><strong>Chair</strong> — EarthWeek Internal Symposium Committee (2024–2025) [cite: 107–109]</li>
+      <li><strong>Member</strong> — El Día Committee (2023–2025) [cite: 110,113]</li>
+      <li><strong>Member</strong> — EarthWeek Committee (2023–2024) [cite: 111,114]</li>
+      <li><strong>Member</strong> — Olympiad Group, K. N. Toosi Univ. (2019–2020) [cite: 112,115]</li>
     </ul>
   </div>
 
   <h2>Honors & Awards</h2>
   <div class="card">
     <ul>
-      <li>John W. Harshbarger Memorial Scholarship — University of Arizona (2025) </li>
-      <li>Tom Meixner Spirit Award (Community Spirit & Collaboration) — University of Arizona (2025) </li>
-      <li>Second Place - Poster Presentation (Hydrology) — El Día del Agua y la Atmósfera (2025) </li>
-      <li>Rank 5th among Water Resources Engineering M.Sc. students — University of Tehran (2022) </li>
-      <li>Top 0.03% in University Entrance Exam (Graduate Program), Civil Engineering (Rank 14/47,000) (2020) </li>
-      <li>Direct M.Sc. and Ph.D. admission offers — K. N. Toosi University of Technology (2020) </li>
-      <li>Top 10% of Civil Engineering students (Rank 6/70) — K. N. Toosi University of Technology (2020) </li>
-      <li>Top 1% in Iran Nationwide University Entrance Examination ("Konkour") (>160,000 participants) (2016) </li>
+      <li>John W. Harshbarger Memorial Scholarship — University of Arizona (2025)</li>
+      <li>Tom Meixner Spirit Award (Community Spirit & Collaboration) — University of Arizona (2025)</li>
+      <li>Second Place — Poster Presentation (Hydrology) — El Día del Agua y la Atmósfera (2025)</li>
+      <li>Rank 5th among Water Resources Engineering M.Sc. students — University of Tehran (2022)</li>
+      <li>Top 0.03% Graduate Entrance Exam (Rank 14/47,000) — Iran (2020)</li>
+      <li>Direct M.Sc. & Ph.D. admission offers — K. N. Toosi University of Technology (2020)</li>
+      <li>Top 10% of Civil Engineering students (Rank 6/70) — K. N. Toosi University of Technology (2020)</li>
+      <li>Top 1% in Iran Nationwide “Konkour” (Math & Physics, >160,000 participants) (2016)</li>
     </ul>
   </div>
 
   <h2>Contact</h2>
   <div class="card">
-    <p>
-      Tucson, Arizona, USA [cite: 2]<br>
-      <a href="mailto:Hyousefi@arizona.edu">Hyousefi@arizona.edu</a> [cite: 2]<br>
-      <a href="tel:+15205897119">+1 (520) 589-7119</a> [cite: 2]<br>
-      <a href="https://linkedin.com/in/zane-yousefi1998" target="_blank">LinkedIn: zane-yousefi1998</a> [cite: 2]<br>
-      <a href="https://orcid.org/0000-0003-3117-572X" target="_blank">ORCID: 0000-0003-3117-572X</a> [cite: 3]
-    </p>
+    <div class="row">
+      <div>
+        Tucson, Arizona, USA [cite: 2]<br>
+        <a href="mailto:Hyousefi@arizona.edu">Hyousefi@arizona.edu</a> [cite: 2]<br>
+        <a href="tel:+15205897119">+1 (520) 589-7119</a> [cite: 2]<br>
+        <a href="https://linkedin.com/in/zane-yousefi1998" target="_blank">LinkedIn: zane-yousefi1998</a> [cite: 2]<br>
+        <a href="https://orcid.org/0000-0003-3117-572X" target="_blank">ORCID: 0000-0003-3117-572X</a> [cite: 3]
+      </div>
+      <div class="year">Get in touch</div>
+    </div>
   </div>
 
 </div>
